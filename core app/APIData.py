@@ -15,7 +15,7 @@ def getID(username):  #returns user ID
 #API DATA
 
 def getUser(): #prints data of specific user
-    username=input("Enter username: ")
+    username = input("Enter username: ")
     user_cmd = "twitch api get /users -q login=" + username
     os.system('cmd /C ' + user_cmd)
 
@@ -24,7 +24,7 @@ def getTopGames(): #prints data of top 20 broadcasted games
     os.system('cmd /C ' + topgames_cmd)
 
 def getGame(): #prints data of specific game
-    game=input("Enter username: ")
+    game = input("Enter game name: ")
     game_cmd = "twitch api get /games -q name=" + game
     os.system('cmd /C ' + game_cmd)
 
