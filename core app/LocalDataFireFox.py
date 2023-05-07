@@ -53,7 +53,7 @@ elif choice == 3:
 
     cur = con.cursor()
 
-    for row in cur.execute('SELECT * FROM database;'):
+    for row in cur.execute('SELECT * FROM object_store_index;'):
         print(row)
 
     # Be sure to close the connection
