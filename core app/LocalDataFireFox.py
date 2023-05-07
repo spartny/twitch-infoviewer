@@ -17,18 +17,44 @@ for profile in profiles:
 
 dataPath = path.expandvars(r'%APPDATA%\\Mozilla\\\\Firefox\\Profiles\\'+profileName+'\\storage\\default\\https+++www.twitch.tv\\ls\\data.sqlite')
 
-cachePath = path.expandvars(r'%APPDATA%\\Mozilla\\\\Firefox\\Profiles\\pu0zefqs.default-release\\storage\\default\\https+++www.twitch.tv\\cache\\caches.sqlite')
+cachePath = path.expandvars(r'%APPDATA%\\Mozilla\\\\Firefox\\Profiles\\'+profileName+'\\storage\\default\\https+++www.twitch.tv\\cache\\caches.sqlite')
+
+idb = path.expandvars(r'%APPDATA%\\Mozilla\\\\Firefox\\Profiles\\'+profileName+'\\storage\\default\\https+++www.twitch.tv\\idb\\3966727148sswnnooittiafci.sqlite')
 
 
 
-# Create a SQL connection to our SQLite database
-con = sqlite3.connect(dataPath)
+choice = int(input('Select Path (1,2,3) - '))
 
-cur = con.cursor()
 
-# The result of a "cursor.execute" can be iterated over by row
-for row in cur.execute('SELECT key FROM data;'):
-    print(row)
+if choice == 1:
+    con = sqlite3.connect(dataPath)
 
-# Be sure to close the connection
-con.close()
+    cur = con.cursor()
+
+    for row in cur.execute('SELECT * FROM data;'):
+        print(row)
+
+    # Be sure to close the connection
+    con.close()
+
+elif choice == 2:
+    con = sqlite3.connect(cachePath)
+
+    cur = con.cursor()
+
+    for row in cur.execute('SELECT * FROM caches;'):
+        print(row)
+
+    # Be sure to close the connection
+    con.close()
+
+elif choice == 3:
+    con = sqlite3.connect(idb)
+
+    cur = con.cursor()
+
+    for row in cur.execute('SELECT * FROM database;'):
+        print(row)
+
+    # Be sure to close the connection
+    con.close()
