@@ -6,14 +6,16 @@ from PySide6.QtCore import QFile, QIODevice
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
-    ui_file_name = "main.ui"
+    
+    app.setApplicationName("Twitch InfoViewer")
+    ui_file_name = "twitch-infoviewer/main.ui"
     ui_file = QFile(ui_file_name)
     if not ui_file.open(QIODevice.ReadOnly):
         print(f"Cannot open {ui_file_name}: {ui_file.errorString()}")
         sys.exit(-1)
     loader = QUiLoader()
     window = loader.load(ui_file)
+    window.setWindowTitle("Twitch InfoViewer")
     ui_file.close()
     if not window:
         print(loader.errorString())
