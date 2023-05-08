@@ -8,16 +8,14 @@ config_cmd = "twitch configure -i " + client_id + " -s " + client_secret
 os.system('cmd /C ' + config_cmd)
 
 
-def getID(username):  #returns user ID
-    id_cmd = "twitch api get /users -q login=" + username
-    data_dict = eval(subprocess.check_output(id_cmd,shell=True))
-    print(type(data_dict))
-    print(data_dict['data'][0]['id'])
+username = input("Enter username: ")
+id_cmd = "twitch api get /users -q login=" + username
+data_dict = eval(subprocess.check_output(id_cmd,shell=True))
+ID = data_dict['data'][0]['id']
 
 #API DATA
 
 def getUser(): #prints data of specific user
-    username = input("Enter username: ")
     user_cmd = "twitch api get /users -q login=" + username
     os.system('cmd /C ' + user_cmd)
 
@@ -41,4 +39,32 @@ def getStreams(): #prints all current streams
 def getSoundtrackPlaylists(): #prints Soundtrack Playlists
     music_cmd = "twitch api get /soundtrack/playlists"
     os.system('cmd /C ' + music_cmd)
+
+def getChannelFollowers(ID): 
+    channel_cmd = 'twitch api get /channels/followers -q broadcaster_id='+ID
+    os.system("cmd /C" + channel_cmd)
+
+def getUsersFollows(ID):
+    follows_cmd = 'twitch api get /users/follows -q from_id='+ID
+    os.system("cmd /C" + follows_cmd)
+
+def getUsersFollowing(ID):
+    following_cmd = 'twitch api get /users/follows -q to_id='+ID
+    os.system("cmd /C" + following_cmd)
+
+def getVideoClip(ID):
+    clip_cmd = 'twitch api get /clips -q broadcaster_id='+ID
+    os.system("cmd /C" + clip_cmd)
+
+def getChannelInfo(ID):
+    Info_cmd = 'twitch api get /channels -q broadcaster_id='+ID
+    os.system("cmd /C" + Info_cmd)
+
+
+
+getChannelFollowers(ID)
+getUsersFollowing(ID)
+getChannelInfo(ID)
+getVideoClip(ID)
+getChannelFollowers(ID)
 
