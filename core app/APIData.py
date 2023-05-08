@@ -1,5 +1,7 @@
 import os
 import subprocess
+
+
 client_id = 'aa00f8e0g4gic1bkruejtn1qvht9v3'
 client_secret = 'scpcq6f9io95x79pw1hhhb3yjiyxnu'
 config_cmd = "twitch configure -i " + client_id + " -s " + client_secret
@@ -8,9 +10,9 @@ os.system('cmd /C ' + config_cmd)
 
 def getID(username):  #returns user ID
     id_cmd = "twitch api get /users -q login=" + username
-    os.system('cmd /C ' + id_cmd)
     data_dict = eval(subprocess.check_output(id_cmd,shell=True))
-    return data_dict["data"[0]["id"]]
+    print(type(data_dict))
+    print(data_dict['data'][0]['id'])
 
 #API DATA
 
