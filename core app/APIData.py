@@ -62,9 +62,3 @@ def getChannelInfo(ID):
 
 
 
-getChannelFollowers(ID)
-getUsersFollowing(ID)
-getChannelInfo(ID)
-getVideoClip(ID)
-getChannelFollowers(ID)
-
