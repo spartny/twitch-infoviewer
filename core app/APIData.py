@@ -3,7 +3,7 @@ import requests
 headers = {"Client-ID": "aa00f8e0g4gic1bkruejtn1qvht9v3","Authorization": "Bearer fd253rukwe5shngahs4eb1bzxlz7e8"}
 url = "https://api.twitch.tv/helix/"
 
-def getid(username):
+def getID(username):
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
     return response['data'][0]['id']
@@ -16,8 +16,8 @@ def getUserDetails(username): #prints data of specific user
     print(response["data"][0])
 
 def getTop20Games(): #prints data of top 20 broadcasted games
-    topgames_url = url + "games/top" 
-    response = requests.get(topgames_url, headers=headers).json()
+    topGames_url = url + "games/top" 
+    response = requests.get(topGames_url, headers=headers).json()
     for game in response["data"]:
         print(game)
         print()
@@ -49,33 +49,33 @@ def getTop20SoundtrackPlaylists(): #prints top 20 Soundtrack Playlists
         print()
 
 def getFollowerCount(channel):  #prints number of followers of a specific account
-    channel_url = url + "channels/followers?broadcaster_id=" + getid(channel)
+    channel_url = url + "channels/followers?broadcaster_id=" + getID(channel)
     response = requests.get(channel_url, headers=headers).json()
     print(response["total"])
     
 def getUserFollows(username):  #prints details of all followed accounts of a specific user
-    follows_url = url + "users/follows?from_id="+ getid(username)
+    follows_url = url + "users/follows?from_id="+ getID(username)
     response = requests.get(follows_url, headers=headers).json()
     for user in response["data"]:
         print(user)
         print()
 
 def getFollowers(username):  #prints details of all followers of a specific user
-    follower_url = url + "users/follows?to_id="+ getid(username)
+    follower_url = url + "users/follows?to_id="+ getID(username)
     response = requests.get(follower_url, headers=headers).json()
     for user in response["data"]:
         print(user)
         print()
 
 def getVideoClipDetails(username):  #prints details of video clips of a specific user
-    video_url = url + "clips?broadcaster_id="+ getid(username)
+    video_url = url + "clips?broadcaster_id="+ getID(username)
     response = requests.get(video_url, headers=headers).json()
     for clip in response["data"]:
         print(clip)
         print()
 
 def getChannelInfo(channel):  #prints channel data
-    info_url = url + "channels?broadcaster_id="+ getid(channel)
+    info_url = url + "channels?broadcaster_id="+ getID(channel)
     response = requests.get(info_url, headers=headers).json()
     print(response['data'][0])
 
