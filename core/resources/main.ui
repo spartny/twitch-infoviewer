@@ -10,15 +10,37 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Twitch-InfoViewer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icon/twitch-info.png</normaloff>:/icon/twitch-info.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_FF">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>30</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -37,7 +59,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>20</y>
+      <y>30</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -52,48 +74,10 @@
      <string>Google Chrome</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_ME">
+   <widget class="QPushButton" name="pushButton_FetchAPI">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>20</y>
-      <width>100</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>100</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>Microsoft Edge</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_B">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>20</y>
-      <width>100</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>100</width>
-      <height>30</height>
-     </size>
-    </property>
-    <property name="text">
-     <string>Brave</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_B_2">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
+      <x>760</x>
       <y>20</y>
       <width>100</width>
       <height>30</height>
@@ -112,8 +96,8 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>71</y>
+      <x>20</x>
+      <y>70</y>
       <width>321</width>
       <height>461</height>
      </rect>
@@ -125,15 +109,15 @@
       <x>370</x>
       <y>70</y>
       <width>491</width>
-      <height>451</height>
+      <height>461</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_B_3">
+   <widget class="QPushButton" name="pushButton_ExportFiles">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>20</y>
+      <x>230</x>
+      <y>540</y>
       <width>100</width>
       <height>30</height>
      </rect>
@@ -148,9 +132,69 @@
      <string>Export files</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="lineEdit_twitchUsername">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>20</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>20</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter Twitch Username:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_ExportFile">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>540</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Export file</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Browser to extract data from:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
