@@ -39,6 +39,19 @@
    <item row="0" column="0">
     <widget class="QWidget" name="Main" native="true">
      <layout class="QGridLayout" name="gridLayout">
+      <item row="3" column="5">
+       <widget class="QPushButton" name="pushButton_ExportFile">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Export file</string>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="pushButton_GC">
         <property name="maximumSize">
@@ -49,6 +62,23 @@
         </property>
         <property name="text">
          <string>Google Chrome</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QListWidget" name="listWidget"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_ViewFile">
+        <property name="text">
+         <string>View Selected File</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4" rowspan="2">
+       <widget class="QLineEdit" name="lineEdit_twitchUsername">
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -72,36 +102,6 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="5">
-       <widget class="QPushButton" name="pushButton_ExportFile">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Export file</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4" rowspan="2">
-       <widget class="QLineEdit" name="lineEdit_twitchUsername">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3" colspan="3">
-       <widget class="QTableWidget" name="tableWidget"/>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Select Browser to extract data from:</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="5" rowspan="2">
        <widget class="QPushButton" name="pushButton_FetchAPI">
         <property name="maximumSize">
@@ -115,9 +115,6 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="3">
-       <widget class="QListWidget" name="listWidget"/>
-      </item>
       <item row="1" column="0">
        <widget class="QPushButton" name="pushButton_FF">
         <property name="maximumSize">
@@ -128,6 +125,20 @@
         </property>
         <property name="text">
          <string>Mozilla Firefox</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Select Browser to extract data from:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3" colspan="3">
+       <widget class="QTextEdit" name="textEdit">
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -146,6 +157,16 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_FF</tabstop>
+  <tabstop>pushButton_GC</tabstop>
+  <tabstop>lineEdit_twitchUsername</tabstop>
+  <tabstop>pushButton_FetchAPI</tabstop>
+  <tabstop>listWidget</tabstop>
+  <tabstop>pushButton_ViewFile</tabstop>
+  <tabstop>pushButton_ExportFiles</tabstop>
+  <tabstop>pushButton_ExportFile</tabstop>
+ </tabstops>
  <resources>
   <include location="icons.qrc"/>
  </resources>

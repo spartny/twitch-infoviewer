@@ -5,7 +5,7 @@ from PySide6 import QtGui as qtg
 
 from core.resources.main_ui import Ui_MainWindow
 import APIData as apd
-
+import LocalDataFireFox as ff
 
 class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     def __init__(self):
@@ -16,23 +16,33 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.pushButton_FF.clicked.connect(self.firefoxdata)
         self.pushButton_GC.clicked.connect(self.googlechromedata)
 
+
+
+
     @qtc.Slot()
     def runAPI(self):
         print("fetching userid...")
-        user = self.lineEdit_twitchUsername
-        print(str(user))
-        apd.getid(str(user))
+        user = self.lineEdit_twitchUsername.text()
+        print(user)
+        print(apd.getid(user))
 
     @qtc.Slot()
     def firefoxdata(self):
         print("fetching local firefox data...")
-        pass
+        self.listWidget.addItems(["Data", "Cache", "IDB"])
+        self.pushButton_ViewFile.clicked.connect(self.extractFF)
 
     @qtc.Slot()
     def googlechromedata(self):
         print("fetching local chrome data...")
         pass
 
+    @qtc.Slot()
+    def extractFF(self):
+        choice = self.listWidget.currentItem().text()
+        print(choice)
+        content = ff.extraction(choice)
+        self.textEdit.setText(content)
 
 
 if __name__ == "__main__":
