@@ -7,8 +7,7 @@ url = "https://api.twitch.tv/helix/"
 def getid(username):
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
-    result = response['data'][0]['id']
-    return result
+    return response['data'][0]['id']
 
 
 # API DATA

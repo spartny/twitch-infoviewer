@@ -20,6 +20,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     def runAPI(self):
         print("fetching userid...")
         user = self.lineEdit_twitchUsername
+        print(str(user))
         apd.getid(str(user))
 
     @qtc.Slot()
