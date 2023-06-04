@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff7d1db2-71ec-40af-8539-f91a6303da62" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core app/APIData.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core app/LocalDataFireFox.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core app/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core app/resources/main.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/APIData.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/APIData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/icons_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/icons_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/resources/main_ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/resources/twitch-info.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/resources/twitch-info.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +36,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Documents/code/twitch-infoviewer",
-    "settings.editor.selected.configurable": "preferences.externalTools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/code/twitch-infoviewer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="twitch-infoviewer" />
