@@ -4,10 +4,29 @@ headers = {"Client-ID": "aa00f8e0g4gic1bkruejtn1qvht9v3", "Authorization": "Bear
 url = "https://api.twitch.tv/helix/"
 
 
+def extraction(choice, username):
+    options = {
+        "User ID": getid,
+        "User Details": getUserDetails,
+        "Top 20 games": getTop20Games,
+        # "Game Details": getGameDetails,
+        "Global Emotes": getGlobalEmotes,
+        "Top 20 Streams": getTop20Streams,
+        "Top 20 Soundtrack Playlists": getTop20SoundtrackPlaylists,
+        "Follower count": getFollowerCount,
+        "User follows": getUserFollows,
+        "Followers": getFollowers,
+        "Video Clip Details": getVideoClipDetails,
+        "Channel information": getChannelInfo,
+    }
+    return options[choice](username)
+
+
 def getid(username):
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
-    return response['data'][0]['id']
+    data = str(response['data'][0]['id'])
+    return data
 
 
 # API DATA
@@ -15,64 +34,102 @@ def getid(username):
 def getUserDetails(username):  # prints data of specific user
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
-    return response["data"][0]
+    data = response["data"][0]
+    result = ""
+    for i in data:
+        result += str(i) + " : " + str(data[i]) + '\n'
+
+    return result
 
 
-def getTop20Games():  # prints data of top 20 broadcasted games
+def getTop20Games(username):  # prints data of top 20 broadcasted games
     topgames_url = url + "games/top"
     response = requests.get(topgames_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
-def getGameDetails(game):  # prints data of specific game
-    game_url = url + "games?name=" + game
-    response = requests.get(game_url, headers=headers).json()
-    return response["data"][0]
+# def getGameDetails(game):  # prints data of specific game
+#     game_url = url + "games?name=" + game
+#     response = requests.get(game_url, headers=headers).json()
+#     return response["data"][0]
 
 
-def getGlobalEmotes():  # prints data of all global emotes that are used in chat
+def getGlobalEmotes(username):  # prints data of all global emotes that are used in chat
     emote_url = url + "chat/emotes/global"
     response = requests.get(emote_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
-def getTop20Streams():  # prints top 20 current streams
+def getTop20Streams(username):  # prints top 20 current streams
     stream_url = url + "streams"
     response = requests.get(stream_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
-def getTop20SoundtrackPlaylists():  # prints top 20 Soundtrack Playlists
+def getTop20SoundtrackPlaylists(username):  # prints top 20 Soundtrack Playlists
     music_url = url + "soundtrack/playlists"
     response = requests.get(music_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
 def getFollowerCount(channel):  # prints number of followers of a specific account
     channel_url = url + "channels/followers?broadcaster_id=" + getid(channel)
     response = requests.get(channel_url, headers=headers).json()
-    print(response["total"])
+    data = response["total"]
+    return "Total Followers: " + str(data)
 
 
 def getUserFollows(username):  # prints details of all followed accounts of a specific user
     follows_url = url + "users/follows?from_id=" + getid(username)
     response = requests.get(follows_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
 def getFollowers(username):  # prints details of all followers of a specific user
     follower_url = url + "users/follows?to_id=" + getid(username)
     response = requests.get(follower_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
 def getVideoClipDetails(username):  # prints details of video clips of a specific user
     video_url = url + "clips?broadcaster_id=" + getid(username)
     response = requests.get(video_url, headers=headers).json()
-    return response["data"]
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
 
 
 def getChannelInfo(channel):  # prints channel data
     info_url = url + "channels?broadcaster_id=" + getid(channel)
     response = requests.get(info_url, headers=headers).json()
-    return response["data"][0]
+    data = response["data"][0]
+    result = ""
+    for i in data:
+        result += str(i) + " : " + str(data[i]) + '\n'
+    return result

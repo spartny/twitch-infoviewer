@@ -124,7 +124,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Twitch-InfoViewer", None))
         self.pushButton_ExportFile.setText(QCoreApplication.translate("MainWindow", u"Export file", None))
         self.pushButton_GC.setText(QCoreApplication.translate("MainWindow", u"Google Chrome", None))
-        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected File", None))
+        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected Data", None))
         self.lineEdit_twitchUsername.setText("")
         self.pushButton_ExportFiles.setText(QCoreApplication.translate("MainWindow", u"Export files", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Enter Twitch Username:", None))

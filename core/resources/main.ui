@@ -71,7 +71,7 @@
       <item row="3" column="1">
        <widget class="QPushButton" name="pushButton_ViewFile">
         <property name="text">
-         <string>View Selected File</string>
+         <string>View Selected Data</string>
         </property>
        </widget>
       </item>

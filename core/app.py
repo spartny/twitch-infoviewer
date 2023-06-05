@@ -7,6 +7,7 @@ from core.resources.main_ui import Ui_MainWindow
 import APIData as apd
 import LocalDataFireFox as ff
 
+
 class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -16,20 +17,26 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.pushButton_FF.clicked.connect(self.firefoxdata)
         self.pushButton_GC.clicked.connect(self.googlechromedata)
 
-
-
-
     @qtc.Slot()
     def runAPI(self):
-        print("fetching userid...")
-        user = self.lineEdit_twitchUsername.text()
-        print(user)
-        print(apd.getid(user))
+        print("fetching API data...")
+        items = [
+            "User ID", "User Details", "Top 20 games",
+            # "Game Details"
+            "Global Emotes", "Top 20 Streams", "Top 20 Soundtrack Playlists",
+            "Follower count", "User follows", "Followers", "Video Clip Details",
+            "Channel information"
+        ]
+        self.listWidget.clear()
+        self.listWidget.addItems(items)
+        self.pushButton_ViewFile.clicked.connect(self.extractAPI)
 
     @qtc.Slot()
     def firefoxdata(self):
         print("fetching local firefox data...")
-        self.listWidget.addItems(["Data", "Cache", "IDB"])
+        items = ["Data", "Cache", "IDB"]
+        self.listWidget.clear()
+        self.listWidget.addItems(items)
         self.pushButton_ViewFile.clicked.connect(self.extractFF)
 
     @qtc.Slot()
@@ -42,6 +49,14 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         choice = self.listWidget.currentItem().text()
         print(choice)
         content = ff.extraction(choice)
+        self.textEdit.setText(content)
+
+    @qtc.Slot()
+    def extractAPI(self):
+        choice = self.listWidget.currentItem().text()
+        user = self.lineEdit_twitchUsername.text()
+        print(choice)
+        content = apd.extraction(choice, user)
         self.textEdit.setText(content)
 
 
