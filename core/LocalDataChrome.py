@@ -1,4 +1,4 @@
-import plyvel
+#import plyvel
 
 from os import path
 import os
@@ -24,7 +24,7 @@ with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
                 # record.
                 batch = local_storage.find_batch(record.leveldb_seq_number)
                 timestamp = batch.timestamp if batch else None
-                print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
+                print('\n', record.leveldb_seq_number, record.script_key, record.value, sep="\t")
             
             break
 
