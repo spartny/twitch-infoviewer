@@ -18,6 +18,7 @@ def extraction(choice, username):
         "Followers": getFollowers,
         "Video Clip Details": getVideoClipDetails,
         "Channel information": getChannelInfo,
+        "Channel teams": getChannelTeams,
     }
     return options[choice](username)
 
@@ -133,3 +134,17 @@ def getChannelInfo(channel):  # prints channel data
     for i in data:
         result += str(i) + " : " + str(data[i]) + '\n'
     return result
+
+def getChannelTeams(channel):  # returns channel team name and team id if exists
+    team_url = url + "teams/channel?broadcaster_id=" + getid(channel)
+    response = requests.get(team_url, headers=headers).json()
+    try:
+        data = (response["data"][0]["team_name"] , response["data"][0]["id"])
+    except TypeError:
+        return "No team"
+    return data
+
+
+
+
+
