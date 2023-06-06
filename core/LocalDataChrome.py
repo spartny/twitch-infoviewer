@@ -1,32 +1,68 @@
-#import plyvel
 
 from os import path
-import os
 
-import sys
 import pathlib
 import ccl_chromium_localstorage
 
 ldbPath = path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\User Data\Default\Local Storage\\leveldb\\')
 
-
 level_db_in_dir = pathlib.Path(ldbPath)
 
-# Create the LocalStoreDb object which is used to access the data
-with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
-    for storage_key in local_storage.iter_storage_keys():
-        if storage_key == 'https://www.twitch.tv':
-            print(f"Getting records for {storage_key}")
+def ChromeExtraction(choice):
+    # Create the LocalStoreDb object which is used to access the data
+    if choice == 'www.twitch.tv':
+        with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+            for storage_key in local_storage.iter_storage_keys():
+                if storage_key == 'https://www.twitch.tv':
+                    print(f"Getting records for {storage_key}")
+                    result = ''
+                    for record in local_storage.iter_records_for_storage_key(storage_key):
+                        # we can attempt to associate this record with a batch, which may
+                        # provide an approximate timestamp (withing 5-60 seconds) for this
+                        # record.
+                        batch = local_storage.find_batch(record.leveldb_seq_number)
+                        timestamp = batch.timestamp if batch else None
+                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
+                        print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
+                    
+                    break
+    
+    if choice == 'gql.twitch.tv':
+        with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+            for storage_key in local_storage.iter_storage_keys():
+                if storage_key == 'https://gql.twitch.tv':
+                    print(f"Getting records for {storage_key}")
+                    result = ''
+                    for record in local_storage.iter_records_for_storage_key(storage_key):
+                        # we can attempt to associate this record with a batch, which may
+                        # provide an approximate timestamp (withing 5-60 seconds) for this
+                        # record.
+                        batch = local_storage.find_batch(record.leveldb_seq_number)
+                        timestamp = batch.timestamp if batch else None
+                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
 
-            for record in local_storage.iter_records_for_storage_key(storage_key):
-                # we can attempt to associate this record with a batch, which may
-                # provide an approximate timestamp (withing 5-60 seconds) for this
-                # record.
-                batch = local_storage.find_batch(record.leveldb_seq_number)
-                timestamp = batch.timestamp if batch else None
-                print('\n', record.leveldb_seq_number, record.script_key, record.value, sep="\t")
-            
-            break
+                        print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
+                    
+                    break
+
+    if choice == 'passport.twitch.tv':
+        with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+            for storage_key in local_storage.iter_storage_keys():
+                if storage_key == 'https://passport.twitch.tv':
+                    print(f"Getting records for {storage_key}")
+                    result = ''
+                    for record in local_storage.iter_records_for_storage_key(storage_key):
+                        # we can attempt to associate this record with a batch, which may
+                        # provide an approximate timestamp (withing 5-60 seconds) for this
+                        # record.
+                        batch = local_storage.find_batch(record.leveldb_seq_number)
+                        timestamp = batch.timestamp if batch else None
+                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
+                        print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
+                    
+                    break
+    
+    return result
 
 
 
