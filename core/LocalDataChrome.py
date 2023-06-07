@@ -21,8 +21,9 @@ def ChromeExtraction(choice):
                         # provide an approximate timestamp (withing 5-60 seconds) for this
                         # record.
                         batch = local_storage.find_batch(record.leveldb_seq_number)
-                        timestamp = batch.timestamp if batch else None
-                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
+                        result += str(record.leveldb_seq_number) + '\t'
+                        result += str(record.script_key) + '\t'
+                        result += str(record.value) + '\n'
                         print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
                     
                     break
@@ -39,7 +40,9 @@ def ChromeExtraction(choice):
                         # record.
                         batch = local_storage.find_batch(record.leveldb_seq_number)
                         timestamp = batch.timestamp if batch else None
-                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
+                        result += str(record.leveldb_seq_number) + '\t'
+                        result += str(record.script_key) + '\t'
+                        result += str(record.value) + '\n'
 
                         print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
                     
@@ -57,15 +60,20 @@ def ChromeExtraction(choice):
                         # record.
                         batch = local_storage.find_batch(record.leveldb_seq_number)
                         timestamp = batch.timestamp if batch else None
-                        result += record.leveldb_seq_number, record.script_key, record.value + '\n'
+                        result += str(record.leveldb_seq_number) + '\t'
+                        result += str(record.script_key) + '\t'
+                        result += str(record.value) + '\n'
+                        #result += record.leveldb_seq_number, record.script_key, record.value + '\n'
                         print('\n',record.leveldb_seq_number, record.script_key, record.value, sep="\t")
                     
                     break
     
     return result
 
+#Testing function
+result = ChromeExtraction('passport.twitch.tv')
 
-
+print(result)
 
 
 # def open_leveldb(db_dir):
