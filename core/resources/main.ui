@@ -39,69 +39,6 @@
    <item row="0" column="0">
     <widget class="QWidget" name="Main" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="5">
-       <widget class="QPushButton" name="pushButton_ExportFile">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Export file</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="pushButton_GC">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Google Chrome</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="3">
-       <widget class="QListWidget" name="listWidget"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="pushButton_ViewFile">
-        <property name="text">
-         <string>View Selected Data</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4" rowspan="2">
-       <widget class="QLineEdit" name="lineEdit_twitchUsername">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="pushButton_ExportFiles">
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Export files</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3" rowspan="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Enter Twitch Username:</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="5" rowspan="2">
        <widget class="QPushButton" name="pushButton_FetchAPI">
         <property name="maximumSize">
@@ -128,6 +65,56 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0" colspan="3">
+       <widget class="QListWidget" name="listWidget"/>
+      </item>
+      <item row="2" column="3" colspan="5">
+       <widget class="QTextEdit" name="textEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4" rowspan="2">
+       <widget class="QLineEdit" name="lineEdit_twitchUsername">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_GC">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Google Chrome</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_ViewFile">
+        <property name="text">
+         <string>View Selected Data</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="pushButton_ExportFiles">
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Export files</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="label_2">
         <property name="text">
@@ -135,10 +122,51 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="3" colspan="3">
-       <widget class="QTextEdit" name="textEdit">
-        <property name="readOnly">
+      <item row="0" column="3" rowspan="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Enter Twitch Username:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7" rowspan="2">
+       <widget class="QPushButton" name="pushButton_GeneralAPI">
+        <property name="enabled">
          <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Get General API Data</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="7" alignment="Qt::AlignRight">
+       <widget class="QPushButton" name="pushButton_ExportFile">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Export file</string>
         </property>
        </widget>
       </item>
@@ -161,11 +189,9 @@
   <tabstop>pushButton_FF</tabstop>
   <tabstop>pushButton_GC</tabstop>
   <tabstop>lineEdit_twitchUsername</tabstop>
-  <tabstop>pushButton_FetchAPI</tabstop>
   <tabstop>listWidget</tabstop>
   <tabstop>pushButton_ViewFile</tabstop>
   <tabstop>pushButton_ExportFiles</tabstop>
-  <tabstop>pushButton_ExportFile</tabstop>
  </tabstops>
  <resources>
   <include location="icons.qrc"/>

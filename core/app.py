@@ -7,6 +7,7 @@ from resources.main_ui import Ui_MainWindow
 import APIData as apd
 import LocalDataFireFox as ff
 import LocalDataChrome as gc
+import generalAPI_data as gapd
 
 
 class TwitchInfo(qtw.QWidget, Ui_MainWindow):
@@ -17,6 +18,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.pushButton_FetchAPI.clicked.connect(self.runAPI)
         self.pushButton_FF.clicked.connect(self.firefoxdata)
         self.pushButton_GC.clicked.connect(self.googlechromedata)
+        self.pushButton_GeneralAPI.clicked.connect(self.generalAPI)
 
     @qtc.Slot()
     def runAPI(self):
@@ -48,10 +50,21 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.pushButton_ViewFile.clicked.connect(self.extractGC)
 
     @qtc.Slot()
+    def generalAPI(self):
+        print("fetching general twitch API data...")
+        items = ["Top 20 games", "Global Emotes", "Top 20 Streams"
+            , "Top 20 Soundtrack Playlists"
+                 ]
+        self.listWidget.clear()
+        self.listWidget.addItems(items)
+        self.pushButton_ViewFile.clicked.connect(self.extractGAPI)
+
+    @qtc.Slot()
     def extractFF(self):
         choice = self.listWidget.currentItem().text()
         print(choice)
         content = ff.extraction(choice)
+        self.textEdit.clear()
         self.textEdit.setText(content)
 
     @qtc.Slot()
@@ -59,6 +72,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         choice = self.listWidget.currentItem().text()
         print(choice)
         content = gc.extraction(choice)
+        self.textEdit.clear()
         self.textEdit.setText(content)
 
     @qtc.Slot()
@@ -67,6 +81,16 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         user = self.lineEdit_twitchUsername.text()
         print(choice)
         content = apd.extraction(choice, user)
+        self.textEdit.clear()
+        self.textEdit.setText(content)
+
+    @qtc.Slot()
+    def extractGAPI(self):
+        choice = self.listWidget.currentItem().text()
+        user = self.lineEdit_twitchUsername.text()
+        print(choice)
+        content = gapd.extraction(choice, user)
+        self.textEdit.clear()
         self.textEdit.setText(content)
 
 
