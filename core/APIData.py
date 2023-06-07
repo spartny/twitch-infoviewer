@@ -8,11 +8,7 @@ def extraction(choice, username):
     options = {
         "User ID": getid,
         "User Details": getUserDetails,
-        "Top 20 games": getTop20Games,
         # "Game Details": getGameDetails,
-        "Global Emotes": getGlobalEmotes,
-        "Top 20 Streams": getTop20Streams,
-        "Top 20 Soundtrack Playlists": getTop20SoundtrackPlaylists,
         "Follower count": getFollowerCount,
         "User follows": getUserFollows,
         "Followers": getFollowers,
@@ -43,50 +39,10 @@ def getUserDetails(username):  # prints data of specific user
     return result
 
 
-def getTop20Games(username):  # prints data of top 20 broadcasted games
-    topgames_url = url + "games/top"
-    response = requests.get(topgames_url, headers=headers).json()
-    data = response["data"]
-    result = ""
-    for i in data:
-        result += str(i) + '\n'
-    return result
-
-
 # def getGameDetails(game):  # prints data of specific game
 #     game_url = url + "games?name=" + game
 #     response = requests.get(game_url, headers=headers).json()
 #     return response["data"][0]
-
-
-def getGlobalEmotes(username):  # prints data of all global emotes that are used in chat
-    emote_url = url + "chat/emotes/global"
-    response = requests.get(emote_url, headers=headers).json()
-    data = response["data"]
-    result = ""
-    for i in data:
-        result += str(i) + '\n'
-    return result
-
-
-def getTop20Streams(username):  # prints top 20 current streams
-    stream_url = url + "streams"
-    response = requests.get(stream_url, headers=headers).json()
-    data = response["data"]
-    result = ""
-    for i in data:
-        result += str(i) + '\n'
-    return result
-
-
-def getTop20SoundtrackPlaylists(username):  # prints top 20 Soundtrack Playlists
-    music_url = url + "soundtrack/playlists"
-    response = requests.get(music_url, headers=headers).json()
-    data = response["data"]
-    result = ""
-    for i in data:
-        result += str(i) + '\n'
-    return result
 
 
 def getFollowerCount(channel):  # prints number of followers of a specific account
@@ -135,16 +91,17 @@ def getChannelInfo(channel):  # prints channel data
         result += str(i) + " : " + str(data[i]) + '\n'
     return result
 
+
 def getChannelTeams(channel):  # returns channel team name and team id if exists
     team_url = url + "teams/channel?broadcaster_id=" + getid(channel)
     response = requests.get(team_url, headers=headers).json()
     try:
-        data = (response["data"][0]["team_name"] , response["data"][0]["id"])
+        data = (response["data"][0]["team_name"], response["data"][0]["id"])
     except TypeError:
         return "No team"
-    return data
 
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
 
-
-
-
+    return result

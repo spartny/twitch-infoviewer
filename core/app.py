@@ -6,6 +6,7 @@ from PySide6 import QtGui as qtg
 from resources.main_ui import Ui_MainWindow
 import APIData as apd
 import LocalDataFireFox as ff
+import LocalDataChrome as gc
 
 
 class TwitchInfo(qtw.QWidget, Ui_MainWindow):
@@ -21,11 +22,10 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     def runAPI(self):
         print("fetching API data...")
         items = [
-            "User ID", "User Details", "Top 20 games",
+            "User ID", "User Details",
             # "Game Details"
-            "Global Emotes", "Top 20 Streams", "Top 20 Soundtrack Playlists",
             "Follower count", "User follows", "Followers", "Video Clip Details",
-            "Channel information"
+            "Channel information", "Channel teams"
         ]
         self.listWidget.clear()
         self.listWidget.addItems(items)
@@ -42,13 +42,23 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     @qtc.Slot()
     def googlechromedata(self):
         print("fetching local chrome data...")
-        pass
+        items = ["www.twitch.tv", "gql.twitch.tv", "passport.twitch.tv"]
+        self.listWidget.clear()
+        self.listWidget.addItems(items)
+        self.pushButton_ViewFile.clicked.connect(self.extractGC)
 
     @qtc.Slot()
     def extractFF(self):
         choice = self.listWidget.currentItem().text()
         print(choice)
         content = ff.extraction(choice)
+        self.textEdit.setText(content)
+
+    @qtc.Slot()
+    def extractGC(self):
+        choice = self.listWidget.currentItem().text()
+        print(choice)
+        content = gc.extraction(choice)
         self.textEdit.setText(content)
 
     @qtc.Slot()

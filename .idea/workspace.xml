@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff7d1db2-71ec-40af-8539-f91a6303da62" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/generalAPI_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/APIData.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/APIData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/LocalDataChrome.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/LocalDataChrome.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.LocalDataChrome">
+  <component name="RunManager" selected="Python.app">
     <configuration name="APIData" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="twitch-infoviewer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,6 +69,9 @@
       <module name="twitch-infoviewer" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -124,8 +130,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LocalDataChrome" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.LocalDataChrome" />
         <item itemvalue="Python.APIData" />
         <item itemvalue="Python.main" />
       </list>
