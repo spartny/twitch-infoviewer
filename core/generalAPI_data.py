@@ -47,7 +47,7 @@ def getTop20Streams():  # prints top 20 current streams
 
 
 def getTop20SoundtrackPlaylists():  # prints top 20 Soundtrack Playlists
-    music_url = url + "badges/global"
+    music_url = url + "soundtrack/playlists"
     response = requests.get(music_url, headers=headers).json()
     data = response["data"]
     result = ""
@@ -56,7 +56,7 @@ def getTop20SoundtrackPlaylists():  # prints top 20 Soundtrack Playlists
     return result
 
 def getGlobalChatBadges():  # prints all global chat badges
-    badge_url = url + "soundtrack/playlists"
+    badge_url = url + "badges/global"
     response = requests.get(badge_url, headers=headers).json()
     data = response["data"]
     result = ""
