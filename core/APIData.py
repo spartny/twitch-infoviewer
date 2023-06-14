@@ -15,6 +15,7 @@ def extraction(choice, username):
         "Video Clip Details": getVideoClipDetails,
         "Channel information": getChannelInfo,
         "Channel teams": getChannelTeams,
+        "User Chat Color": getUserChatColor
     }
     return options[choice](username)
 
@@ -105,3 +106,16 @@ def getChannelTeams(channel):  # returns channel team name and team id if exists
         result += str(i) + '\n'
 
     return result
+
+
+def getUserChatColor(channel):  # prints color code chosen for username in chat
+    color_url = url + "chat/color?user_id=" + getid(channel)
+    response = requests.get(color_url, headers=headers).json()
+    data = response["data"][0]["color"]
+
+    if len(data) != 0:
+        return "Color code chosen: " + data
+    
+    else:
+        return "No chosen color"
+
