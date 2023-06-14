@@ -9,6 +9,8 @@ import LocalDataFireFox as ff
 import LocalDataChrome as gc
 import generalAPI_data as gapd
 
+from datetime import datetime
+
 
 class TwitchInfo(qtw.QWidget, Ui_MainWindow):
     def __init__(self):
@@ -19,6 +21,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.pushButton_FF.clicked.connect(self.firefoxdata)
         self.pushButton_GC.clicked.connect(self.googlechromedata)
         self.pushButton_GeneralAPI.clicked.connect(self.generalAPI)
+        self.pushButton_ExportFile.clicked.connect(self.exportTE)
 
     @qtc.Slot()
     def runAPI(self):
@@ -92,6 +95,23 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         content = gapd.extraction(choice, user)
         self.textEdit.clear()
         self.textEdit.setText(content)
+
+    @qtc.Slot()
+    def exportTE(self):
+        print("exporting textedit to file")
+        choice = self.listWidget.currentItem().text()
+        data = self.textEdit.toPlainText()
+        now = now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y_%H-%M-%S")
+        # with open(f'{choice}_{dt_string}.txt', 'w') as f:
+        #     f.write(data)
+        #     f.flush()
+        #     print("exported")
+        f = open('../outputs/' + choice + '_' + dt_string + '.txt', 'w')
+        f.write(data)
+        f.flush()
+        f.close()
+        print("exported")
 
 
 if __name__ == "__main__":
