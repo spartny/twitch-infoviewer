@@ -1,0 +1,20 @@
+{'id': '509658', 'name': 'Just Chatting', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg', 'igdb_id': ''}
+{'id': '515024', 'name': 'Diablo IV', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/515024-{width}x{height}.jpg', 'igdb_id': '125165'}
+{'id': '21779', 'name': 'League of Legends', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/21779-{width}x{height}.jpg', 'igdb_id': '115'}
+{'id': '516575', 'name': 'VALORANT', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/516575-{width}x{height}.jpg', 'igdb_id': '126459'}
+{'id': '263490', 'name': 'Rust', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/263490_IGDB-{width}x{height}.jpg', 'igdb_id': '3277'}
+{'id': '513143', 'name': 'Teamfight Tactics', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/513143-{width}x{height}.jpg', 'igdb_id': '120176'}
+{'id': '32982', 'name': 'Grand Theft Auto V', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-{width}x{height}.jpg', 'igdb_id': '1020'}
+{'id': '518203', 'name': 'Sports', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/518203-{width}x{height}.jpg', 'igdb_id': ''}
+{'id': '512710', 'name': 'Call of Duty: Warzone', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/512710-{width}x{height}.jpg', 'igdb_id': '131800'}
+{'id': '29595', 'name': 'Dota 2', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/29595-{width}x{height}.jpg', 'igdb_id': '2963'}
+{'id': '32399', 'name': 'Counter-Strike: Global Offensive', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/32399_IGDB-{width}x{height}.jpg', 'igdb_id': '1372'}
+{'id': '55453844', 'name': 'Street Fighter 6', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/55453844_IGDB-{width}x{height}.jpg', 'igdb_id': '191692'}
+{'id': '515025', 'name': 'Overwatch 2', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/515025-{width}x{height}.jpg', 'igdb_id': '125174'}
+{'id': '511224', 'name': 'Apex Legends', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/511224-{width}x{height}.jpg', 'igdb_id': '114795'}
+{'id': '515605', 'name': 'Blue Protocol', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/515605_IGDB-{width}x{height}.jpg', 'igdb_id': '120206'}
+{'id': '33214', 'name': 'Fortnite', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg', 'igdb_id': '1905'}
+{'id': '18122', 'name': 'World of Warcraft', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/18122-{width}x{height}.jpg', 'igdb_id': '123'}
+{'id': '1767487238', 'name': 'Casino Slot Machine', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/1767487238_IGDB-{width}x{height}.jpg', 'igdb_id': '41528'}
+{'id': '491487', 'name': 'Dead by Daylight', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/491487-{width}x{height}.jpg', 'igdb_id': '18866'}
+{'id': '498566', 'name': 'Slots', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/498566-{width}x{height}.jpg', 'igdb_id': ''}

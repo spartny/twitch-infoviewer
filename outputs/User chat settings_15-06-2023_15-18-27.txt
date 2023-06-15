@@ -1,0 +1,1 @@
+{'broadcaster_id': '83428908', 'slow_mode': False, 'slow_mode_wait_time': None, 'follower_mode': True, 'follower_mode_duration': 0, 'subscriber_mode': False, 'emote_mode': False, 'unique_chat_mode': True}

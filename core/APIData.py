@@ -15,7 +15,9 @@ def extraction(choice, username):
         "Video Clip Details": getVideoClipDetails,
         "Channel information": getChannelInfo,
         "Channel teams": getChannelTeams,
-        "User Chat Color": getUserChatColor
+        "User chat color": getUserChatColor,
+        "User chat settings": getUserChatSettings,
+        # "User extensions": getUserExtensions,
     }
     return options[choice](username)
 
@@ -115,7 +117,26 @@ def getUserChatColor(channel):  # prints color code chosen for username in chat
 
     if len(data) != 0:
         return "Color code chosen: " + data
-    
+
     else:
         return "No chosen color"
 
+
+def getUserChatSettings(username):  # prints details of chat settings of a specific user
+    chat_settings_url = url + "chat/settings?broadcaster_id=" + getid(username)
+    response = requests.get(chat_settings_url, headers=headers).json()
+    data = response["data"]
+    result = ""
+    for i in data:
+        result += str(i) + '\n'
+    return result
+
+
+# def getUserExtensions(username):  # prints details of installed extensions of a specific user
+#     extensions_url = url + "users/extensions/list"
+#     response = requests.get(extensions_url, headers=headers).json()
+#     data = response["data"]
+#     result = ""
+#     for i in data:
+#         result += str(i) + '\n'
+#     return result

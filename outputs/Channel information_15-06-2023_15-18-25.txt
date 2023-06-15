@@ -1,0 +1,9 @@
+broadcaster_id : 83428908
+broadcaster_login : governor
+broadcaster_name : Governor
+broadcaster_language : en
+game_id : 516575
+game_name : VALORANT
+title : 24 hour stream for fun | !currentrank !record !newvid | !vape
+delay : 0
+tags : ['English']

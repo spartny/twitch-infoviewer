@@ -30,19 +30,29 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
             "User ID", "User Details",
             # "Game Details"
             "Follower count", "User follows", "Followers", "Video Clip Details",
-            "Channel information", "Channel teams"
+            "Channel information", "Channel teams", "User chat color",
+            "User chat settings",  # "User extensions",
         ]
         self.listWidget.clear()
         self.listWidget.addItems(items)
         self.pushButton_ViewFile.clicked.connect(self.extractAPI)
+        self.pushButton_ExportFiles.clicked.connect(self.exportAPI)
 
     @qtc.Slot()
     def firefoxdata(self):
         print("fetching local firefox data...")
-        items = ["Data", "Cache", "IDB"]
+        items = [
+            "local storage - data", "local storage - database",
+            "cache - caches", "cache - entries", "cache - request_headers",
+            "cache - response_headers", "cache - response_url_lists",
+            "cache - security_info", "cache - sqlite_sequence",
+            "cache - storage", "idb - database", "idb - file", "idb - index_data",
+            "idb - object_data", "idb - object_store", "idb - object_store_index",
+        ]
         self.listWidget.clear()
         self.listWidget.addItems(items)
         self.pushButton_ViewFile.clicked.connect(self.extractFF)
+        self.pushButton_ExportFiles.clicked.connect(self.exportFF)
 
     @qtc.Slot()
     def googlechromedata(self):
@@ -51,16 +61,19 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         self.listWidget.clear()
         self.listWidget.addItems(items)
         self.pushButton_ViewFile.clicked.connect(self.extractGC)
+        self.pushButton_ExportFiles.clicked.connect(self.exportGC)
 
     @qtc.Slot()
     def generalAPI(self):
         print("fetching general twitch API data...")
-        items = ["Top 20 games", "Global Emotes", "Top 20 Streams"
-            , "Top 20 Soundtrack Playlists"
+        items = ["Top 20 games", "Global Emotes", "Top 20 Streams",
+                 "Top 20 Soundtrack Playlists", "Global Chat Badges",
+                 "Global Cheermotes",
                  ]
         self.listWidget.clear()
         self.listWidget.addItems(items)
         self.pushButton_ViewFile.clicked.connect(self.extractGAPI)
+        self.pushButton_ExportFiles.clicked.connect(self.exportGAPI)
 
     @qtc.Slot()
     def extractFF(self):
@@ -102,15 +115,88 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         choice = self.listWidget.currentItem().text()
         data = self.textEdit.toPlainText()
         now = now = datetime.now()
-        dt_string = now.strftime("%d/%m/%Y_%H-%M-%S")
-        # with open(f'{choice}_{dt_string}.txt', 'w') as f:
-        #     f.write(data)
-        #     f.flush()
-        #     print("exported")
-        f = open('../outputs/' + choice + '_' + dt_string + '.txt', 'w')
-        f.write(data)
-        f.flush()
-        f.close()
+        dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
+
+        with open('../outputs/' + choice + '_' + dt_string + '.txt', 'w') as f:
+            f.write(data)
+            f.flush()
+            f.close()
+            print("exported")
+
+    @qtc.Slot()
+    def exportFF(self):
+        print("exporting all items in listwidget to files")
+        items = [self.listWidget.item(x).text() for x in range(self.listWidget.count())]
+        print(items)
+        for i in items:
+            user = self.lineEdit_twitchUsername.text()
+            content = ff.extraction(i)
+            now = datetime.now()
+            dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
+            with open('../outputs/' + i + '_' + dt_string + '.txt', 'w') as f:
+                if content:
+                    f.write(content)
+                else:
+                    f.write("empty record")
+                f.flush()
+                f.close()
+        print("exported")
+
+    @qtc.Slot()
+    def exportGC(self):
+        print("exporting all items in listwidget to files")
+        items = [self.listWidget.item(x).text() for x in range(self.listWidget.count())]
+        print(items)
+        for i in items:
+            user = self.lineEdit_twitchUsername.text()
+            content = gc.extraction(i)
+            now = datetime.now()
+            dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
+            with open('../outputs/' + i + '_' + dt_string + '.txt', 'w') as f:
+                if content:
+                    f.write(content)
+                else:
+                    f.write("empty record")
+                f.flush()
+                f.close()
+        print("exported")
+
+    @qtc.Slot()
+    def exportAPI(self):
+        print("exporting all items in listwidget to files")
+        items = [self.listWidget.item(x).text() for x in range(self.listWidget.count())]
+        print(items)
+        for i in items:
+            user = self.lineEdit_twitchUsername.text()
+            content = apd.extraction(i, user)
+            now = datetime.now()
+            dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
+            with open('../outputs/' + i + '_' + dt_string + '.txt', 'w') as f:
+                if content:
+                    f.write(content)
+                else:
+                    f.write("empty record")
+                f.flush()
+                f.close()
+        print("exported")
+
+    @qtc.Slot()
+    def exportGAPI(self):
+        print("exporting all items in listwidget to files")
+        items = [self.listWidget.item(x).text() for x in range(self.listWidget.count())]
+        print(items)
+        for i in items:
+            user = self.lineEdit_twitchUsername.text()
+            content = gapd.extraction(i, user)
+            now = datetime.now()
+            dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
+            with open('../outputs/' + i + '_' + dt_string + '.txt', 'w') as f:
+                if content:
+                    f.write(content)
+                else:
+                    f.write("empty record")
+                f.flush()
+                f.close()
         print("exported")
 
 

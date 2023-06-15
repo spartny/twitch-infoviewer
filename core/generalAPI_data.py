@@ -16,7 +16,7 @@ def extraction(choice, username):
     return options[choice](username)
 
 
-def getTop20Games():  # prints data of top 20 broadcasted games
+def getTop20Games(username):  # prints data of top 20 broadcasted games
     topgames_url = url + "games/top"
     response = requests.get(topgames_url, headers=headers).json()
     data = response["data"]
@@ -26,7 +26,7 @@ def getTop20Games():  # prints data of top 20 broadcasted games
     return result
 
 
-def getGlobalEmotes():  # prints data of all global emotes that are used in chat
+def getGlobalEmotes(username):  # prints data of all global emotes that are used in chat
     emote_url = url + "chat/emotes/global"
     response = requests.get(emote_url, headers=headers).json()
     data = response["data"]
@@ -36,7 +36,7 @@ def getGlobalEmotes():  # prints data of all global emotes that are used in chat
     return result
 
 
-def getTop20Streams():  # prints top 20 current streams
+def getTop20Streams(username):  # prints top 20 current streams
     stream_url = url + "streams"
     response = requests.get(stream_url, headers=headers).json()
     data = response["data"]
@@ -46,7 +46,7 @@ def getTop20Streams():  # prints top 20 current streams
     return result
 
 
-def getTop20SoundtrackPlaylists():  # prints top 20 Soundtrack Playlists
+def getTop20SoundtrackPlaylists(username):  # prints top 20 Soundtrack Playlists
     music_url = url + "soundtrack/playlists"
     response = requests.get(music_url, headers=headers).json()
     data = response["data"]
@@ -55,8 +55,9 @@ def getTop20SoundtrackPlaylists():  # prints top 20 Soundtrack Playlists
         result += str(i) + '\n'
     return result
 
-def getGlobalChatBadges():  # prints all global chat badges
-    badge_url = url + "badges/global"
+
+def getGlobalChatBadges(username):  # prints all global chat badges
+    badge_url = url + "chat/badges/global"
     response = requests.get(badge_url, headers=headers).json()
     data = response["data"]
     result = ""
@@ -64,7 +65,8 @@ def getGlobalChatBadges():  # prints all global chat badges
         result += str(i) + '\n'
     return result
 
-def getGlobalCheermotes():  # prints all global chat badges
+
+def getGlobalCheermotes(username):  # prints all global chat badges
     cheer_url = url + "bits/cheermotes"
     response = requests.get(cheer_url, headers=headers).json()
     data = response["data"][0]["tiers"]
@@ -72,6 +74,3 @@ def getGlobalCheermotes():  # prints all global chat badges
     for i in data:
         result += str(i) + '\n'
     return result
-
-
-
