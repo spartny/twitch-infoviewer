@@ -132,11 +132,13 @@ def getUserChatSettings(username):  # prints details of chat settings of a speci
     return result
 
 
-# def getUserExtensions(username):  # prints details of installed extensions of a specific user
-#     extensions_url = url + "users/extensions/list"
-#     response = requests.get(extensions_url, headers=headers).json()
-#     data = response["data"]
-#     result = ""
-#     for i in data:
-#         result += str(i) + '\n'
-#     return result
+def getUserExtensions(username):  # prints details of installed extensions of a specific user
+    extensions_url = url + "users/extensions?user_id=" + getid(username)
+    response = requests.get(extensions_url, headers=headers).json()
+    data = response["data"]["panel"]
+    result = ""
+    for key in data:
+        result += str(data[key]) + '\n'
+    return result
+
+
