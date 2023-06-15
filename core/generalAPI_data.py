@@ -66,7 +66,7 @@ def getGlobalChatBadges(username):  # prints all global chat badges
     return result
 
 
-def getGlobalCheermotes(username):  # prints all global chat badges
+def getGlobalCheermotes(username):  # prints all global cheermotes
     cheer_url = url + "bits/cheermotes"
     response = requests.get(cheer_url, headers=headers).json()
     data = response["data"][0]["tiers"]
