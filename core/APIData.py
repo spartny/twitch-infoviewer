@@ -1,6 +1,6 @@
 import requests
 
-headers = {"Client-ID": "aa00f8e0g4gic1bkruejtn1qvht9v3", "Authorization": "Bearer fd253rukwe5shngahs4eb1bzxlz7e8"}
+headers = {"Client-ID": "do9riuwpoytsel2umu1nqq1zcaquc4", "Authorization": "Bearer wso04w82mg6m6varfnozbwrn8hdtl0"}
 url = "https://api.twitch.tv/helix/"
 
 
@@ -34,6 +34,7 @@ def getid(username):
 def getUserDetails(username):  # prints data of specific user
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
+    return response
     data = response["data"][0]
     result = ""
     for i in data:
@@ -140,5 +141,4 @@ def getUserExtensions(username):  # prints details of installed extensions of a 
     for key in data:
         result += str(data[key]) + '\n'
     return result
-
 
