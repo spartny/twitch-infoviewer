@@ -34,7 +34,6 @@ def getid(username):
 def getUserDetails(username):  # prints data of specific user
     user_url = url + "users?login=" + username
     response = requests.get(user_url, headers=headers).json()
-    return response
     data = response["data"][0]
     result = ""
     for i in data:
