@@ -43,11 +43,11 @@ class Ui_MainWindow(object):
         self.Main.setObjectName(u"Main")
         self.gridLayout = QGridLayout(self.Main)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.pushButton_FetchAPI = QPushButton(self.Main)
-        self.pushButton_FetchAPI.setObjectName(u"pushButton_FetchAPI")
-        self.pushButton_FetchAPI.setMaximumSize(QSize(100, 30))
+        self.textEdit = QTextEdit(self.Main)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setReadOnly(True)
 
-        self.gridLayout.addWidget(self.pushButton_FetchAPI, 0, 5, 2, 1)
+        self.gridLayout.addWidget(self.textEdit, 2, 3, 1, 5)
 
         self.pushButton_FF = QPushButton(self.Main)
         self.pushButton_FF.setObjectName(u"pushButton_FF")
@@ -55,43 +55,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.pushButton_FF, 1, 0, 1, 1)
 
+        self.pushButton_FetchAPI = QPushButton(self.Main)
+        self.pushButton_FetchAPI.setObjectName(u"pushButton_FetchAPI")
+        self.pushButton_FetchAPI.setMaximumSize(QSize(100, 30))
+
+        self.gridLayout.addWidget(self.pushButton_FetchAPI, 0, 5, 2, 1)
+
         self.listWidget = QListWidget(self.Main)
         self.listWidget.setObjectName(u"listWidget")
 
         self.gridLayout.addWidget(self.listWidget, 2, 0, 1, 3)
-
-        self.textEdit = QTextEdit(self.Main)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setReadOnly(True)
-
-        self.gridLayout.addWidget(self.textEdit, 2, 3, 1, 5)
-
-        self.lineEdit_twitchUsername = QLineEdit(self.Main)
-        self.lineEdit_twitchUsername.setObjectName(u"lineEdit_twitchUsername")
-
-        self.gridLayout.addWidget(self.lineEdit_twitchUsername, 0, 4, 2, 1)
-
-        self.pushButton_GC = QPushButton(self.Main)
-        self.pushButton_GC.setObjectName(u"pushButton_GC")
-        self.pushButton_GC.setMaximumSize(QSize(100, 30))
-
-        self.gridLayout.addWidget(self.pushButton_GC, 1, 1, 1, 1)
-
-        self.pushButton_ViewFile = QPushButton(self.Main)
-        self.pushButton_ViewFile.setObjectName(u"pushButton_ViewFile")
-
-        self.gridLayout.addWidget(self.pushButton_ViewFile, 3, 1, 1, 1)
-
-        self.pushButton_ExportFiles = QPushButton(self.Main)
-        self.pushButton_ExportFiles.setObjectName(u"pushButton_ExportFiles")
-        self.pushButton_ExportFiles.setMaximumSize(QSize(100, 30))
-
-        self.gridLayout.addWidget(self.pushButton_ExportFiles, 3, 2, 1, 1)
-
-        self.label_2 = QLabel(self.Main)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 2)
 
         self.label = QLabel(self.Main)
         self.label.setObjectName(u"label")
@@ -105,6 +78,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.pushButton_GeneralAPI, 0, 7, 2, 1)
 
+        self.lineEdit_twitchUsername = QLineEdit(self.Main)
+        self.lineEdit_twitchUsername.setObjectName(u"lineEdit_twitchUsername")
+
+        self.gridLayout.addWidget(self.lineEdit_twitchUsername, 0, 4, 2, 1)
+
+        self.label_2 = QLabel(self.Main)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 2)
+
         self.pushButton_ExportFile = QPushButton(self.Main)
         self.pushButton_ExportFile.setObjectName(u"pushButton_ExportFile")
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
@@ -116,6 +99,33 @@ class Ui_MainWindow(object):
         self.pushButton_ExportFile.setMaximumSize(QSize(100, 30))
 
         self.gridLayout.addWidget(self.pushButton_ExportFile, 3, 7, 1, 1, Qt.AlignRight)
+
+        self.pushButton_ViewFile = QPushButton(self.Main)
+        self.pushButton_ViewFile.setObjectName(u"pushButton_ViewFile")
+
+        self.gridLayout.addWidget(self.pushButton_ViewFile, 3, 1, 1, 1)
+
+        self.pushButton_ExportFiles = QPushButton(self.Main)
+        self.pushButton_ExportFiles.setObjectName(u"pushButton_ExportFiles")
+        self.pushButton_ExportFiles.setMaximumSize(QSize(100, 30))
+
+        self.gridLayout.addWidget(self.pushButton_ExportFiles, 3, 2, 1, 1)
+
+        self.pushButton_GC = QPushButton(self.Main)
+        self.pushButton_GC.setObjectName(u"pushButton_GC")
+        self.pushButton_GC.setMaximumSize(QSize(100, 30))
+
+        self.gridLayout.addWidget(self.pushButton_GC, 1, 1, 1, 1)
+
+        self.label_Message = QLabel(self.Main)
+        self.label_Message.setObjectName(u"label_Message")
+        self.label_Message.setMinimumSize(QSize(724, 0))
+        font1 = QFont()
+        font1.setFamilies([u"Arial"])
+        font1.setPointSize(11)
+        self.label_Message.setFont(font1)
+
+        self.gridLayout.addWidget(self.label_Message, 4, 0, 1, 8)
 
 
         self.gridLayout_2.addWidget(self.Main, 0, 0, 1, 1)
@@ -133,15 +143,16 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Twitch-InfoViewer", None))
-        self.pushButton_FetchAPI.setText(QCoreApplication.translate("MainWindow", u"Fetch from API", None))
         self.pushButton_FF.setText(QCoreApplication.translate("MainWindow", u"Mozilla Firefox", None))
-        self.lineEdit_twitchUsername.setText("")
-        self.pushButton_GC.setText(QCoreApplication.translate("MainWindow", u"Google Chrome", None))
-        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected Data", None))
-        self.pushButton_ExportFiles.setText(QCoreApplication.translate("MainWindow", u"Export files", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Select Browser to extract data from:", None))
+        self.pushButton_FetchAPI.setText(QCoreApplication.translate("MainWindow", u"Fetch from API", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Enter Twitch Username:", None))
         self.pushButton_GeneralAPI.setText(QCoreApplication.translate("MainWindow", u"Get General API Data", None))
+        self.lineEdit_twitchUsername.setText("")
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Select Browser to extract data from:", None))
         self.pushButton_ExportFile.setText(QCoreApplication.translate("MainWindow", u"Export file", None))
+        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected Data", None))
+        self.pushButton_ExportFiles.setText(QCoreApplication.translate("MainWindow", u"Export files", None))
+        self.pushButton_GC.setText(QCoreApplication.translate("MainWindow", u"Google Chrome", None))
+        self.label_Message.setText(QCoreApplication.translate("MainWindow", u"Message: ", None))
     # retranslateUi
 
