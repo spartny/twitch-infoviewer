@@ -25,7 +25,7 @@ import typing
 import dataclasses
 from types import MappingProxyType
 
-import ccl_leveldb
+import ccl_chrome_indexeddb_master.ccl_leveldb
 
 __version__ = "0.2.1"
 __description__ = "Module for reading the Chromium leveldb sessionstorage format"
@@ -55,7 +55,7 @@ class SessionStoreDb:
         if not in_dir.is_dir():
             raise IOError("Input directory is not a directory")
 
-        self._ldb = ccl_leveldb.RawLevelDb(in_dir)
+        self._ldb = ccl_chrome_indexeddb_master.ccl_leveldb.RawLevelDb(in_dir)
 
         # If performance is a concern we should refactor this, but slow and steady for now
 
@@ -87,7 +87,7 @@ class SessionStoreDb:
                 host = host.lower()
                 guid_host_pair = guid, host
 
-                if rec.state == ccl_leveldb.KeyState.Deleted:
+                if rec.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Deleted:
                     self._deleted_keys.add(guid_host_pair)
                 else:
                     try:
@@ -123,7 +123,7 @@ class SessionStoreDb:
                     print(f"Invalid map id key: {rec.user_key}")
                     continue
 
-                if rec.state == ccl_leveldb.KeyState.Deleted:
+                if rec.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Deleted:
                     continue  # TODO: do we want to keep the key around because the presence is important?
 
                 split_key = key.split("-", 2)

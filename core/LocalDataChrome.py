@@ -1,22 +1,33 @@
 from os import path
 
 import pathlib
-import ccl_chromium_localstorage
+import ccl_chrome_indexeddb_master.ccl_chromium_localstorage as cls
+import ccl_chrome_indexeddb_master.ccl_chromium_indexeddb as cid
+import ccl_chrome_indexeddb_master.ccl_chromium_sessionstorage as css
 
-ldbPath = path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\User Data\Default\Local Storage\\leveldb\\')
+localStorage_ldbPath = path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\User Data\Default\Local Storage\\leveldb\\')
 
-level_db_in_dir = pathlib.Path(ldbPath)
+sessionStorage_ldbPath = path.expandvars(r'%LOCALAPPDATA%\Google\Chrome\User Data\Default\Session Storage\\')
+
+indexedDb_ldbPath = path.expandvars(r'Users\parth\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\https_www.twitch.tv_0.indexeddb.leveldb')
+
+localStroage_level_db_in_dir = pathlib.Path(localStorage_ldbPath)
+
+sessionStroage_level_db_in_dir = pathlib.Path(sessionStorage_ldbPath)
+
+indexedDb_level_db_in_dir = pathlib.Path(indexedDb_ldbPath)
+
 
 ifextracted = False
 
 def extraction(choice):
-    result = "record sequence number, script key, value" + '\n'
+    result = ''
     # Create the LocalStoreDb object which is used to access the data
     if choice == 'www.twitch.tv':
         if ifextracted is True:
             return result
         else:
-            with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+            with cls.LocalStoreDb(localStroage_level_db_in_dir) as local_storage:
                 for storage_key in local_storage.iter_storage_keys():
                     if storage_key == 'https://www.twitch.tv':
                         print(f"Getting records for {storage_key}")
@@ -33,13 +44,11 @@ def extraction(choice):
                         return result
 
     if choice == 'local storage - data':
-        extraction('www.twitch.tv')
-
-    
-
+        result = extraction('www.twitch.tv')
+        return result
 
     if choice == 'gql.twitch.tv':
-        with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+        with cls.LocalStoreDb(localStroage_level_db_in_dir) as local_storage:
             for storage_key in local_storage.iter_storage_keys():
                 if storage_key == 'https://gql.twitch.tv':
                     print(f"Getting records for {storage_key}")
@@ -56,7 +65,7 @@ def extraction(choice):
                     return result
 
     if choice == 'passport.twitch.tv':
-        with ccl_chromium_localstorage.LocalStoreDb(level_db_in_dir) as local_storage:
+        with cls.LocalStoreDb(localStroage_level_db_in_dir) as local_storage:
             for storage_key in local_storage.iter_storage_keys():
                 if storage_key == 'https://passport.twitch.tv':
                     print(f"Getting records for {storage_key}")
@@ -72,6 +81,26 @@ def extraction(choice):
 
                     return result
 
+    if choice == 'Session Storage':
+        # Create the SessionStoreDb object which is used to access the data
+        with css.SessionStoreDb(sessionStroage_level_db_in_dir) as session_storage: 
+            for host in session_storage.iter_hosts():
+                if host == 'https://www.twitch.tv/': 
+                    print(f"Getting records for {host}")
+                    print(host)
+                    for key, values in session_storage.get_all_for_host(host).items():
+                        for value in values:
+                            result += str(value.leveldb_sequence_number) + ', ' + str(value.guid) + ', ' + str(
+                                key) + ',' + str(value.value) + '\n'
+                            print(value.leveldb_sequence_number, value.guid, key, value.value, sep="\t")
+                break
+            return result
+
+
+   
+
+
+extraction('Session Storage')
 # def open_leveldb(db_dir):
 #     try:
 #         print('test')

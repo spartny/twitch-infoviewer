@@ -32,9 +32,9 @@ import types
 import typing
 from shelve import DbfilenameShelf
 
-import ccl_leveldb
-import ccl_v8_value_deserializer
-import ccl_blink_value_deserializer
+import ccl_chrome_indexeddb_master.ccl_leveldb
+import ccl_chrome_indexeddb_master.ccl_v8_value_deserializer
+import ccl_chrome_indexeddb_master.ccl_blink_value_deserializer
 
 __version__ = "0.12"
 __description__ = "Module for reading Chromium IndexedDB LevelDB databases."
@@ -327,12 +327,12 @@ class IndexedDbRecord:
         self.sequence_number = ldb_seq_no
         self.external_value_path = external_value_path
 
-    def resolve_blob_index(self, blob_index: ccl_blink_value_deserializer.BlobIndex) -> IndexedDBExternalObject:
+    def resolve_blob_index(self, blob_index: ccl_chrome_indexeddb_master.ccl_blink_value_deserializer.BlobIndex) -> IndexedDBExternalObject:
         """Resolve a ccl_blink_value_deserializer.BlobIndex to its IndexedDBExternalObject
          to get metadata (file name, timestamps, etc)"""
         return self.owner.get_blob_info(self.db_id, self.obj_store_id, self.key.raw_key, blob_index.index_id)
 
-    def get_blob_stream(self, blob_index: ccl_blink_value_deserializer.BlobIndex) -> typing.BinaryIO:
+    def get_blob_stream(self, blob_index: ccl_chrome_indexeddb_master.ccl_blink_value_deserializer.BlobIndex) -> typing.BinaryIO:
         """Resolve a ccl_blink_value_deserializer.BlobIndex to a stream of its content"""
         return self.owner.get_blob(self.db_id, self.obj_store_id, self.key.raw_key, blob_index.index_id)
 
@@ -346,7 +346,7 @@ class IndexedDb:
     # Currently I just assume that everything falls between 1 and 127 for simplicity as it makes scanning the keys
     # lots easier.
     def __init__(self, leveldb_dir: os.PathLike, leveldb_blob_dir: os.PathLike = None):
-        self._db = ccl_leveldb.RawLevelDb(leveldb_dir)
+        self._db = ccl_chrome_indexeddb_master.ccl_leveldb.RawLevelDb(leveldb_dir)
         self._blob_dir = leveldb_blob_dir
         self.global_metadata = None
         self.database_metadata = None
@@ -368,7 +368,7 @@ class IndexedDb:
 
         for record in self._fetched_records:
             # Global Metadata
-            if record.key.startswith(b"\x00\x00\x00\x00") and record.state == ccl_leveldb.KeyState.Live:
+            if record.key.startswith(b"\x00\x00\x00\x00") and record.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Live:
                 if record.key not in global_metadata_raw or global_metadata_raw[record.key].seq < record.seq:
                     global_metadata_raw[record.key] = record
 
@@ -481,7 +481,7 @@ class IndexedDb:
     def get_object_store_metadata(self, db_id: int, obj_store_id: int, meta_type: ObjectStoreMetadataType):
         return self.object_store_meta.get_meta(db_id, obj_store_id, meta_type)
 
-    def _get_raw_global_metadata(self, live_only=True) -> typing.Dict[bytes, ccl_leveldb.Record]:
+    def _get_raw_global_metadata(self, live_only=True) -> typing.Dict[bytes, ccl_chrome_indexeddb_master.ccl_leveldb.Record]:
         # Global metadata always has the prefix 0 0 0 0
         if not live_only:
             raise NotImplementedError("Deleted metadata not implemented yet")
