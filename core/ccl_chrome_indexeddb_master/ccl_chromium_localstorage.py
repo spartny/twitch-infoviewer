@@ -83,15 +83,15 @@ class StorageMetadata:
     def from_protobuff(cls, storage_key: str, data: bytes, seq: int):
         with io.BytesIO(data) as stream:
             # This is a simple protobuff, so we'll read it directly, but with checks, rather than add a dependency
-            ts_tag = ccl_leveldb.read_le_varint(stream)
+            ts_tag = ccl_chrome_indexeddb_master.ccl_leveldb.read_le_varint(stream)
             if (ts_tag & 0x07) != 0 or (ts_tag >> 3) != 1:
                 raise ValueError("Unexpected tag when reading StorageMetadata from protobuff")
-            timestamp = from_chrome_timestamp(ccl_leveldb.read_le_varint(stream))
+            timestamp = from_chrome_timestamp(ccl_chrome_indexeddb_master.ccl_leveldb.read_le_varint(stream))
 
-            size_tag = ccl_leveldb.read_le_varint(stream)
+            size_tag = ccl_chrome_indexeddb_master.ccl_leveldb.read_le_varint(stream)
             if (size_tag & 0x07) != 0 or (size_tag >> 3) != 2:
                 raise ValueError("Unexpected tag when reading StorageMetadata from protobuff")
-            size = ccl_leveldb.read_le_varint(stream)
+            size = ccl_chrome_indexeddb_master.ccl_leveldb.read_le_varint(stream)
 
             return cls(storage_key, timestamp, size, seq)
 
@@ -135,14 +135,14 @@ class LocalStoreDb:
         if not in_dir.is_dir():
             raise IOError("Input directory is not a directory")
 
-        self._ldb = ccl_leveldb.RawLevelDb(in_dir)
+        self._ldb = ccl_chrome_indexeddb_master.ccl_leveldb.RawLevelDb(in_dir)
 
         self._storage_details = {}  # storage_key: {seq_number: StorageMetadata}
         self._flat_items = []       # [StorageMetadata|LocalStorageRecord]   - used to batch items up
         self._records = {}          # storage_key: {script_key: {seq_number: LocalStorageRecord}}
 
         for record in self._ldb.iterate_records_raw():
-            if record.user_key.startswith(_META_PREFIX) and record.state == ccl_leveldb.KeyState.Live:
+            if record.user_key.startswith(_META_PREFIX) and record.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Live:
                 # Only live records for metadata - not sure what we can reliably infer from deleted keys
                 storage_key = record.user_key.removeprefix(_META_PREFIX).decode(EIGHT_BIT_ENCODING)
                 self._storage_details.setdefault(storage_key, {})
@@ -156,7 +156,7 @@ class LocalStoreDb:
                 script_key = decode_string(script_key_raw)
 
                 try:
-                    value = decode_string(record.value) if record.state == ccl_leveldb.KeyState.Live else None
+                    value = decode_string(record.value) if record.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Live else None
                 except UnicodeDecodeError as e:
                     # Some sites play games to test the browser's capabilities like encoding half of a surrogate pair
                     print(f"Error decoding record value at seq no {record.seq}; "
@@ -167,7 +167,7 @@ class LocalStoreDb:
                 self._records[storage_key].setdefault(script_key, {})
 
                 ls_record = LocalStorageRecord(
-                    storage_key, script_key, value, record.seq, record.state == ccl_leveldb.KeyState.Live)
+                    storage_key, script_key, value, record.seq, record.state == ccl_chrome_indexeddb_master.ccl_leveldb.KeyState.Live)
                 self._records[storage_key][script_key][record.seq] = ls_record
                 self._flat_items.append(ls_record)
 

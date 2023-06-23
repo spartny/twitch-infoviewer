@@ -65,7 +65,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         print("fetching local chrome data...")
         self.label_Message.setText("Message: Fetching local Google Chrome data...")
 
-        items = ["Session Storage", "twitch.tv", "gql.twitch.tv", "passport.twitch.tv"]
+        items = ["Session Storage - twitch.tv", "Local Storage - twitch.tv", "Local Storage - gql.twitch.tv", "Local Storage - passport.twitch.tv"]
         self.listWidget.clear()
         self.listWidget.addItems(items)
         self.label_Message.setText("Message: Select File from List to view or export all in the outputs folder")
