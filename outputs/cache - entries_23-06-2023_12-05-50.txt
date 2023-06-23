@@ -1,0 +1,1 @@
+(4, 'GET', 'https://www.twitch.tv/service-worker.js', b'%g\xb7c\x00\xda^T', '', b'\xda9\xa3\xee^kK\r', 'about:client', 1, 2, 1, 20, 0, None, 2, 200, 'OK', 3, '{698927ce-dcac-4396-90f3-9f211319845a}', 1, 'https://www.twitch.tv/service-worker.js', 4, 0, 0, '', '', None)

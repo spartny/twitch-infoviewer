@@ -1,0 +1,1 @@
+('swnotifications', 'https://www.twitch.tv', 1, 1682005585465000, 0, 49152)
