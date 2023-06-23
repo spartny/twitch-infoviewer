@@ -87,7 +87,6 @@ def extraction(choice):
                             result += str(value.leveldb_sequence_number) + ', ' + str(value.guid) + ', ' + str(
                                 key) + ',' + str(value.value) + '\n'
                             print(value.leveldb_sequence_number, value.guid, key, value.value, sep="\t")
-                break
             return result
 
 
