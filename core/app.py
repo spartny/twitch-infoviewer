@@ -34,7 +34,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
             # "Game Details"
             "Follower count", "User follows", "Followers", "Video Clip Details",
             "Channel information", "Channel teams", "User chat color",
-            "User chat settings",  # "User extensions",
+            "User chat settings",  "User extensions",
         ]
         self.listWidget.clear()
         self.listWidget.addItems(items)
@@ -124,7 +124,7 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         choice = self.listWidget.currentItem().text()
         user = self.lineEdit_twitchUsername.text()
         print(choice)
-        content = gapd.extraction(choice, user)
+        content = gapd.extraction(choice)
         self.textEdit.clear()
         self.textEdit.setText(content)
         self.label_Message.setText("Message: Data displayed")
@@ -219,14 +219,14 @@ class TwitchInfo(qtw.QWidget, Ui_MainWindow):
         print(items)
         for i in items:
             user = self.lineEdit_twitchUsername.text()
-            content = gapd.extraction(i, user)
+            content = gapd.extraction(i)
             now = datetime.now()
             dt_string = now.strftime("%d-%m-%Y_%H-%M-%S")
             with open('../outputs/' + i + '_' + dt_string + '.txt', 'w') as f:
-                if content:
-                    f.write(content)
-                else:
-                    f.write("empty record")
+                # if content:
+                f.write(content)
+                # else:
+                #     f.write("empty record")
                 f.flush()
                 f.close()
         print("exported")

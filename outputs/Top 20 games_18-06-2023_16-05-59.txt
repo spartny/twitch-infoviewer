@@ -1,0 +1,20 @@
+{'id': '509658', 'name': 'Just Chatting', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg', 'igdb_id': ''}
+{'id': '29595', 'name': 'Dota 2', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/29595-{width}x{height}.jpg', 'igdb_id': '2963'}
+{'id': '515024', 'name': 'Diablo IV', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/515024-{width}x{height}.jpg', 'igdb_id': '125165'}
+{'id': '21779', 'name': 'League of Legends', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/21779-{width}x{height}.jpg', 'igdb_id': '115'}
+{'id': '515025', 'name': 'Overwatch 2', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/515025-{width}x{height}.jpg', 'igdb_id': '125174'}
+{'id': '516575', 'name': 'VALORANT', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/516575-{width}x{height}.jpg', 'igdb_id': '126459'}
+{'id': '513143', 'name': 'Teamfight Tactics', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/513143-{width}x{height}.jpg', 'igdb_id': '120176'}
+{'id': '33214', 'name': 'Fortnite', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg', 'igdb_id': '1905'}
+{'id': '55453844', 'name': 'Street Fighter 6', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/55453844_IGDB-{width}x{height}.jpg', 'igdb_id': '191692'}
+{'id': '32982', 'name': 'Grand Theft Auto V', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-{width}x{height}.jpg', 'igdb_id': '1020'}
+{'id': '245018539', 'name': 'Only Up!', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/245018539_IGDB-{width}x{height}.jpg', 'igdb_id': '247935'}
+{'id': '496916', 'name': 'BattleBit Remastered', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/496916_IGDB-{width}x{height}.jpg', 'igdb_id': '50531'}
+{'id': '509147', 'name': 'Super Bunny Man', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/509147_IGDB-{width}x{height}.jpg', 'igdb_id': '55472'}
+{'id': '1745202732', 'name': 'FIFA 23', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/1745202732_IGDB-{width}x{height}.jpg', 'igdb_id': '205780'}
+{'id': '512710', 'name': 'Call of Duty: Warzone', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/512710-{width}x{height}.jpg', 'igdb_id': '131800'}
+{'id': '511224', 'name': 'Apex Legends', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/511224-{width}x{height}.jpg', 'igdb_id': '114795'}
+{'id': '26936', 'name': 'Music', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/26936-{width}x{height}.jpg', 'igdb_id': ''}
+{'id': '32399', 'name': 'Counter-Strike: Global Offensive', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/32399_IGDB-{width}x{height}.jpg', 'igdb_id': '1372'}
+{'id': '27471', 'name': 'Minecraft', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-{width}x{height}.jpg', 'igdb_id': '121'}
+{'id': '518203', 'name': 'Sports', 'box_art_url': 'https://static-cdn.jtvnw.net/ttv-boxart/518203-{width}x{height}.jpg', 'igdb_id': ''}

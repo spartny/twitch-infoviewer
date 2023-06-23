@@ -17,7 +17,7 @@ def extraction(choice, username):
         "Channel teams": getChannelTeams,
         "User chat color": getUserChatColor,
         "User chat settings": getUserChatSettings,
-        # "User extensions": getUserExtensions,
+        "User extensions": getUserExtensions,
     }
     return options[choice](username)
 
