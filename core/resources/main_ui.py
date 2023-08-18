@@ -100,17 +100,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.pushButton_ExportFile, 3, 7, 1, 1, Qt.AlignRight)
 
-        self.pushButton_ViewFile = QPushButton(self.Main)
-        self.pushButton_ViewFile.setObjectName(u"pushButton_ViewFile")
-
-        self.gridLayout.addWidget(self.pushButton_ViewFile, 3, 1, 1, 1)
-
-        self.pushButton_ExportFiles = QPushButton(self.Main)
-        self.pushButton_ExportFiles.setObjectName(u"pushButton_ExportFiles")
-        self.pushButton_ExportFiles.setMaximumSize(QSize(100, 30))
-
-        self.gridLayout.addWidget(self.pushButton_ExportFiles, 3, 2, 1, 1)
-
         self.pushButton_GC = QPushButton(self.Main)
         self.pushButton_GC.setObjectName(u"pushButton_GC")
         self.pushButton_GC.setMaximumSize(QSize(100, 30))
@@ -127,14 +116,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.label_Message, 4, 0, 1, 8)
 
+        self.pushButton_ViewFile = QPushButton(self.Main)
+        self.pushButton_ViewFile.setObjectName(u"pushButton_ViewFile")
+
+        self.gridLayout.addWidget(self.pushButton_ViewFile, 3, 2, 1, 1)
+
 
         self.gridLayout_2.addWidget(self.Main, 0, 0, 1, 1)
 
         QWidget.setTabOrder(self.pushButton_FF, self.pushButton_GC)
         QWidget.setTabOrder(self.pushButton_GC, self.lineEdit_twitchUsername)
         QWidget.setTabOrder(self.lineEdit_twitchUsername, self.listWidget)
-        QWidget.setTabOrder(self.listWidget, self.pushButton_ViewFile)
-        QWidget.setTabOrder(self.pushButton_ViewFile, self.pushButton_ExportFiles)
 
         self.retranslateUi(MainWindow)
 
@@ -150,9 +142,8 @@ class Ui_MainWindow(object):
         self.lineEdit_twitchUsername.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Select Browser to extract data from:", None))
         self.pushButton_ExportFile.setText(QCoreApplication.translate("MainWindow", u"Export file", None))
-        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected Data", None))
-        self.pushButton_ExportFiles.setText(QCoreApplication.translate("MainWindow", u"Export files", None))
         self.pushButton_GC.setText(QCoreApplication.translate("MainWindow", u"Google Chrome", None))
         self.label_Message.setText(QCoreApplication.translate("MainWindow", u"Message: ", None))
+        self.pushButton_ViewFile.setText(QCoreApplication.translate("MainWindow", u"View Selected Data", None))
     # retranslateUi
 

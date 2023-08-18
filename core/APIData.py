@@ -1,6 +1,6 @@
 import requests
 
-headers = {"Client-ID": "do9riuwpoytsel2umu1nqq1zcaquc4", "Authorization": "Bearer wso04w82mg6m6varfnozbwrn8hdtl0"}
+headers = {"Client-ID": "kdtctg61dvdiw8is5kpevgdqrxem6e", "Authorization": "Bearer vc0sxm59vprzmi8pti3eyakwf5rb57"}
 url = "https://api.twitch.tv/helix/"
 
 
